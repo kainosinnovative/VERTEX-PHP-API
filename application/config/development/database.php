@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'kainosangularapp',
+	'hostname' => 'LAPTOP-EV1M07C4\SQL_SERVER',
+	'username' => 'sa',
 	'password' => 'kainos123',
-	'database' => 'carwash_db2',
-	'dbdriver' => 'mysqli',
+	'database' => 'vms_bacpac_20220606',
+	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

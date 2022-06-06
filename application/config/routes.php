@@ -50,185 +50,187 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |        my-controller/my-method    -> my_controller/my_method
  */
 $route['default_controller'] = 'test';
-$route['otp/send'] = 'app/generateOtp';
-$route['otp/verify'] = 'app/verifyOtp';
-$route['registration'] = 'app/registration';
+// $route['otp/send'] = 'app/generateOtp';
+// $route['otp/verify'] = 'app/verifyOtp';
+// $route['registration'] = 'app/registration';
 
-$route['car/brands'] = 'app/getBrands';
-$route['car/models'] = 'app/getModels';
-$route['car/variants'] = 'app/getVariantList';
-$route['car/years'] = 'app/getManufactureYears';
+// $route['car/brands'] = 'app/getBrands';
+// $route['car/models'] = 'app/getModels';
+// $route['car/variants'] = 'app/getVariantList';
+// $route['car/years'] = 'app/getManufactureYears';
 
-$route['dashboard/leads'] = 'app/getLeadData';
-$route['profile'] = 'dealer/getProfileInfo';
+// $route['dashboard/leads'] = 'app/getLeadData';
+// $route['profile'] = 'dealer/getProfileInfo';
 
-$route['test/otp'] = 'test/otp';
-$route['delete/dealer'] = 'test/deleteDealer';
+// $route['test/otp'] = 'test/otp';
+// $route['delete/dealer'] = 'test/deleteDealer';
 
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = false;
+// $route['404_override'] = '';
+// $route['translate_uri_dashes'] = false;
 
-/* Profile */
-$route['profile/edit'] = 'app/updateProfile';
-$route['profile/overview'] = 'app/getOverview';
-$route['profile/overview/save'] = 'app/getOverview';
+// /* Profile */
+// $route['profile/edit'] = 'app/updateProfile';
+// $route['profile/overview'] = 'app/getOverview';
+// $route['profile/overview/save'] = 'app/getOverview';
 
-// About Notes Routes
-$route['lead/list'] = 'Dealer/leadList';
-$route['lead/notes/create'] = 'Dealer/noteCreate';
-$route['lead/notes/edit'] = 'Dealer/noteEdit';
-$route['lead/notes/delete'] = 'Dealer/noteDelete';
-$route['lead/notes/list'] = 'Dealer/note';
+// // About Notes Routes
+// $route['lead/list'] = 'Dealer/leadList';
+// $route['lead/notes/create'] = 'Dealer/noteCreate';
+// $route['lead/notes/edit'] = 'Dealer/noteEdit';
+// $route['lead/notes/delete'] = 'Dealer/noteDelete';
+// $route['lead/notes/list'] = 'Dealer/note';
 
-//Test Drive Car List
-$route['drive/car/list'] = 'Dealer/getTestDriveCarList';
-$route['drive/car/edit'] = 'Dealer/editTestDriveCar';
-$route['drive/car/delete'] = 'Dealer/deleteTestDriveCar';
-$route['drive/car/create'] = 'Dealer/createTestDriveCar';
-$route['drive/car/status'] = 'Dealer/updateTestDriveStatus';
+// //Test Drive Car List
+// $route['drive/car/list'] = 'Dealer/getTestDriveCarList';
+// $route['drive/car/edit'] = 'Dealer/editTestDriveCar';
+// $route['drive/car/delete'] = 'Dealer/deleteTestDriveCar';
+// $route['drive/car/create'] = 'Dealer/createTestDriveCar';
+// $route['drive/car/status'] = 'Dealer/updateTestDriveStatus';
 
-// About showroom data
-$route['lead/showroom/create'] = 'Dealer/insertShowroom';
-$route['lead/showroom/edit'] = 'Dealer/showroomEdit';
-$route['lead/showroom/delete'] = 'Dealer/deleteShowroom';
-$route['lead/showroom/list'] = 'Dealer/getShowRoomInformation';
-$route['lead/showroom/status'] = 'Dealer/updateShowroomStatus';
+// // About showroom data
+// $route['lead/showroom/create'] = 'Dealer/insertShowroom';
+// $route['lead/showroom/edit'] = 'Dealer/showroomEdit';
+// $route['lead/showroom/delete'] = 'Dealer/deleteShowroom';
+// $route['lead/showroom/list'] = 'Dealer/getShowRoomInformation';
+// $route['lead/showroom/status'] = 'Dealer/updateShowroomStatus';
 
-// About Attachment data
-$route['lead/attachment/create'] = 'Dealer/insertAttachments';
-$route['lead/attachment/edit'] = 'Dealer/updateAttachments';
-$route['lead/attachment/delete'] = 'Dealer/deleteAttachment';
-$route['lead/attachment/list'] = 'Dealer/getAttachmentData';
-$route['lead/attachment/download'] = 'Dealer/downloadAttachment';
+// // About Attachment data
+// $route['lead/attachment/create'] = 'Dealer/insertAttachments';
+// $route['lead/attachment/edit'] = 'Dealer/updateAttachments';
+// $route['lead/attachment/delete'] = 'Dealer/deleteAttachment';
+// $route['lead/attachment/list'] = 'Dealer/getAttachmentData';
+// $route['lead/attachment/download'] = 'Dealer/downloadAttachment';
 
-// Account Information
-$route['subdealer/account/create'] = 'Dealer/accountInformation';
-$route['subdealer/account/get'] = 'Dealer/getAccountInformation';
+// // Account Information
+// $route['subdealer/account/create'] = 'Dealer/accountInformation';
+// $route['subdealer/account/get'] = 'Dealer/getAccountInformation';
 
-// Management Information
-$route['management/information/create'] = 'Dealer/insertManagementInformation';
-$route['management/information/edit'] = 'Dealer/editManagementInformation';
-$route['management/information/delete'] = 'Dealer/deleteManagementInformation';
-$route['management/information/list'] = 'Dealer/getManagementInformation';
-$route['management/information/status'] = 'Dealer/updateSManagementInformationStatus';
+// // Management Information
+// $route['management/information/create'] = 'Dealer/insertManagementInformation';
+// $route['management/information/edit'] = 'Dealer/editManagementInformation';
+// $route['management/information/delete'] = 'Dealer/deleteManagementInformation';
+// $route['management/information/list'] = 'Dealer/getManagementInformation';
+// $route['management/information/status'] = 'Dealer/updateSManagementInformationStatus';
 
-// testimonial
-$route['app/testimonialList'] = 'app/testimonial';
-$route['app/sendOtp1'] = 'app/sendOtp1';
-$route['app/sendOtp2'] = 'app/sendOtp2';
-// $route['app/signupCustomer'] = 'app/signupCustomer';
-$route['app/SingleCustomerDetails'] = 'app/SingleCustomerDetails';
-$route['app/sendOtp3'] = 'app/sendOtp3';
-$route['app/signupcustomer'] = 'app/signupcustomer';
-$route['app/AddTestimonial'] = 'app/AddTestimonialInsert';
-$route['app/AddCustomer'] = 'app/AddCustomerInsert';
-$route['app/AddCustomerdetails'] = 'app/AddCustomerdetails';
-$route['app/Addwhislist']='app/Addwhislist';
-$route['app/Deletewhislist']='app/Deletewhislist';
-$route['app/customerwhislist']='app/customerwhislist';
-$route['app/readCustomerDataById'] = 'app/readCustomerDataById';
-$route['app/addcontactus']='app/AddContactUs';
+// // testimonial
+// $route['app/testimonialList'] = 'app/testimonial';
+// $route['app/sendOtp1'] = 'app/sendOtp1';
+// $route['app/sendOtp2'] = 'app/sendOtp2';
+// // $route['app/signupCustomer'] = 'app/signupCustomer';
+// $route['app/SingleCustomerDetails'] = 'app/SingleCustomerDetails';
+// $route['app/sendOtp3'] = 'app/sendOtp3';
+// $route['app/signupcustomer'] = 'app/signupcustomer';
+// $route['app/AddTestimonial'] = 'app/AddTestimonialInsert';
+// $route['app/AddCustomer'] = 'app/AddCustomerInsert';
+// $route['app/AddCustomerdetails'] = 'app/AddCustomerdetails';
+// $route['app/Addwhislist']='app/Addwhislist';
+// $route['app/Deletewhislist']='app/Deletewhislist';
+// $route['app/customerwhislist']='app/customerwhislist';
+// $route['app/readCustomerDataById'] = 'app/readCustomerDataById';
+// $route['app/addcontactus']='app/AddContactUs';
 
 
-//General
-$route['app/cartype']='app/cartype';
-$route['app/brandtype']='app/brandtype';
-$route['app/model']='app/model';
-$route['app/citylist']='app/citylist';
-$route['app/getcitynamebyCityid']='app/getcitynamebyCityid';
-$route['app/state']='app/state';
-//Shop Services
-$route['app/services']='app/carservices';
-$routw['shop/getShopProfileById']='shop/getShopProfileById';
+// //General
+// $route['app/cartype']='app/cartype';
+// $route['app/brandtype']='app/brandtype';
+// $route['app/model']='app/model';
+// $route['app/citylist']='app/citylist';
+// $route['app/getcitynamebyCityid']='app/getcitynamebyCityid';
+// $route['app/state']='app/state';
+// //Shop Services
+// $route['app/services']='app/carservices';
+// $routw['shop/getShopProfileById']='shop/getShopProfileById';
 
-$route['app/carAndShopservice']='app/carAndShopservice';
+// $route['app/carAndShopservice']='app/carAndShopservice';
 
-$route['shop/AddshopService']='shop/AddshopService';
-$route['shop/UpdateshopService']='shop/UpdateshopService';
-$route['shop/AddShopdetails']='shop/AddShopdetails';
+// $route['shop/AddshopService']='shop/AddshopService';
+// $route['shop/UpdateshopService']='shop/UpdateshopService';
+// $route['shop/AddShopdetails']='shop/AddShopdetails';
 
-$route['shop/AddComboOfferDetails']='shop/AddComboOfferDetails';
+// $route['shop/AddComboOfferDetails']='shop/AddComboOfferDetails';
 
-$route['shop/getComboOffersByShopid']='shop/getComboOffersByShopid';
+// $route['shop/getComboOffersByShopid']='shop/getComboOffersByShopid';
 
-$route['shop/shopserviceByModelid']='shop/shopserviceByModelid';
+// $route['shop/shopserviceByModelid']='shop/shopserviceByModelid';
 
-$route['shop/combooffertblByModelid']='shop/combooffertblByModelid';
+// $route['shop/combooffertblByModelid']='shop/combooffertblByModelid';
 
-$route['shop/dashboardShopList']='shop/dashboardShopList';
-$route['shop/dashboardShopSearch']='shop/dashboardShopSearch';
+// $route['shop/dashboardShopList']='shop/dashboardShopList';
+// $route['shop/dashboardShopSearch']='shop/dashboardShopSearch';
 
-$route['shop/OnlineBookingShopDetails']='shop/OnlineBookingShopDetails';
+// $route['shop/OnlineBookingShopDetails']='shop/OnlineBookingShopDetails';
 
-$route['shop/Updateshopoffer']='shop/Updateshopoffer';
+// $route['shop/Updateshopoffer']='shop/Updateshopoffer';
 
-$route['shop/dashboardShopDetailsByOffer']='shop/dashboardShopDetailsByOffer';
+// $route['shop/dashboardShopDetailsByOffer']='shop/dashboardShopDetailsByOffer';
 
-$route['shop/CustomerCarDetailsInsert']='shop/CustomerCarDetailsInsert';
-$route['shop/getallshoplist']='shop/getallshoplist';
-//
-$route['app/CarDetailsByCustomerId']='app/CarDetailsByCustomerId';
+// $route['shop/CustomerCarDetailsInsert']='shop/CustomerCarDetailsInsert';
+// $route['shop/getallshoplist']='shop/getallshoplist';
+// //
+// $route['app/CarDetailsByCustomerId']='app/CarDetailsByCustomerId';
 
-$route['app/RemoveMyCarInfo']='app/RemoveMyCarInfo';
-//onlinebooking
-$route['onlinebooking/addonlinebooking']='onlinebooking/addonlinebooking';
+// $route['app/RemoveMyCarInfo']='app/RemoveMyCarInfo';
+// //onlinebooking
+// $route['onlinebooking/addonlinebooking']='onlinebooking/addonlinebooking';
 
-$route['shop/addonlinebooking']='shop/addonlinebooking';
+// $route['shop/addonlinebooking']='shop/addonlinebooking';
 
-$route['app/allmodels']='app/allmodels';
+// $route['app/allmodels']='app/allmodels';
 
-$route['shop/AddShopserviceDetails']='shop/AddShopserviceDetails';
+// $route['shop/AddShopserviceDetails']='shop/AddShopserviceDetails';
 
-$route['shop/AddMasterservice']='shop/AddMasterservice';
+// $route['shop/AddMasterservice']='shop/AddMasterservice';
 
-$route['shop/MasterServiceAndShopService']='shop/MasterServiceAndShopService';
+// $route['shop/MasterServiceAndShopService']='shop/MasterServiceAndShopService';
 
-$route['shop/changeShopServiceStatus']='shop/changeShopServiceStatus';
+// $route['shop/changeShopServiceStatus']='shop/changeShopServiceStatus';
 
-$route['car/getCarinfomodels'] = 'app/getCarinfomodels';
+// $route['car/getCarinfomodels'] = 'app/getCarinfomodels';
 
-$route['shop/customerBookingForShop'] = 'shop/customerBookingForShop';
+// $route['shop/customerBookingForShop'] = 'shop/customerBookingForShop';
 
-$route['shop/master_pickdrop_status'] = 'shop/master_pickdrop_status';
+// $route['shop/master_pickdrop_status'] = 'shop/master_pickdrop_status';
 
-$route['shop/changeBookingStatus']='shop/changeBookingStatus';
+// $route['shop/changeBookingStatus']='shop/changeBookingStatus';
 
-$route['shop/AcceptedBookingList'] = 'shop/AcceptedBookingList';
+// $route['shop/AcceptedBookingList'] = 'shop/AcceptedBookingList';
 
-$route['shop/master_carwash_status'] = 'shop/master_carwash_status';
+// $route['shop/master_carwash_status'] = 'shop/master_carwash_status';
 
-$route['shop/changeCarwashStatus']='shop/changeCarwashStatus';
+// $route['shop/changeCarwashStatus']='shop/changeCarwashStatus';
 
-$route['shop/getcurrentComboOffersByShopid']='shop/getcurrentComboOffersByShopid';
+// $route['shop/getcurrentComboOffersByShopid']='shop/getcurrentComboOffersByShopid';
 
-$route['shop/getServiceDataOffersByCurdate']='shop/getServiceDataOffersByCurdate';
+// $route['shop/getServiceDataOffersByCurdate']='shop/getServiceDataOffersByCurdate';
 
-$route['app/getMybookingDetails']='app/getMybookingDetails';
-$route['shop/dashboardShopSearchOffer']='shop/dashboardShopSearchOffer';
+// $route['app/getMybookingDetails']='app/getMybookingDetails';
+// $route['shop/dashboardShopSearchOffer']='shop/dashboardShopSearchOffer';
 
-$route['shop/getBookingDetailsById']='shop/getBookingDetailsById';
+// $route['shop/getBookingDetailsById']='shop/getBookingDetailsById';
 
-$route['shop/getloadmasterComboOffer']='shop/getloadmasterComboOffer';
-$route['app/getcustomerwhislistprofile']='app/getcustomerwhislistprofile';
-$route['shop/getcurrentComboOffersByShopiddashboard']='shop/getcurrentComboOffersByShopiddashboard';
+// $route['shop/getloadmasterComboOffer']='shop/getloadmasterComboOffer';
+// $route['app/getcustomerwhislistprofile']='app/getcustomerwhislistprofile';
+// $route['shop/getcurrentComboOffersByShopiddashboard']='shop/getcurrentComboOffersByShopiddashboard';
 
-$route['shop/insertShopHolidays']='shop/insertShopHolidays';
-$route['shop/getShopHolidays']='shop/getShopHolidays';
-$route['shop/DeleteHolidays']='shop/DeleteHolidays';
-$route['shop/getholidaysForAll']='shop/getholidaysForAll';
+// $route['shop/insertShopHolidays']='shop/insertShopHolidays';
+// $route['shop/getShopHolidays']='shop/getShopHolidays';
+// $route['shop/DeleteHolidays']='shop/DeleteHolidays';
+// $route['shop/getholidaysForAll']='shop/getholidaysForAll';
 
-$route['shop/servicebasedonmodel']='shop/servicebasedonmodel';
-$route['shop/RemoveMyComboOffer']='shop/RemoveMyComboOffer';
+// $route['shop/servicebasedonmodel']='shop/servicebasedonmodel';
+// $route['shop/RemoveMyComboOffer']='shop/RemoveMyComboOffer';
 
-$route['app/carDetByModelId']='app/carDetByModelId';
+// $route['app/carDetByModelId']='app/carDetByModelId';
 
-$route['app/getServiceDataOnlineBookingModel'] ='app/getServiceDataOnlineBookingModel';
-$route['shop/updatepickupdrop']='shop/updatepickupdrop';
+// $route['app/getServiceDataOnlineBookingModel'] ='app/getServiceDataOnlineBookingModel';
+// $route['shop/updatepickupdrop']='shop/updatepickupdrop';
 
-$route['app/getcustomerByCityId']='app/getcustomerByCityId';
+// $route['app/getcustomerByCityId']='app/getcustomerByCityId';
 
-// $route['app/getRegistrationNumberByModel']='app/getRegistrationNumberByModel';
-$route['app/CarDetailsByIdShopOnlineBooking']='app/CarDetailsByIdShopOnlineBooking';
+// // $route['app/getRegistrationNumberByModel']='app/getRegistrationNumberByModel';
+// $route['app/CarDetailsByIdShopOnlineBooking']='app/CarDetailsByIdShopOnlineBooking';
 
-$route['shop/holidaytimeupdate']='shop/holidaytimeupdate';
-$route['shop/chartcustomercombo']='shop/chartcustomercombo';
+// $route['shop/holidaytimeupdate']='shop/holidaytimeupdate';
+// $route['shop/chartcustomercombo']='shop/chartcustomercombo';
+
+$route['login/getusers']='login/getusers';
