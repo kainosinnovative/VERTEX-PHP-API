@@ -33,64 +33,53 @@ class Login extends REST_Controller
 
     public function loginauth_post()
     {
-        
-        $EmployeeId = $this->post('EmployeeId');
-        $password = $this->post('password');
-        
-        
-            $cardential = ['EmployeeId' => $this->input->post('EmployeeId'),
+
+        $UserId = $this->post('UserId');
+        $password = $this->post('Password');
+
+
+            $cardential = ['EmployeeId' => $this->input->post('UserId'),
                         //    'password' => $this->input->post('password')
                           ];
-                 
-                     $rowcountuser = $this->login_model->checkuser($EmployeeId);
-                  
-                    if($rowcountuser === 0) {
-                        
-                        $this->response(
-                            array('details' => $dealerData),
-                            200,
-                         //   'pass',
-                         //   'Logged in Successfully'
-                        );
-                        
-                   }
-                   else
-                   {
+
+                     $rowcountuser = $this->login_model->checkuser($UserId);
+                    if($rowcountuser != 0)
+                    {
                     //    echo "yes";
-                       $userdetails = $this->login_model->get_user_cardential($EmployeeId);
+                       $userdetails = $this->login_model->get_user_credential($UserId);
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
-                        if($retpassword == $password){
-                            // echo "correct";
-                            $Roledetails = $this->login_model->getroleDetails($UserTypeId);
-                            $retrolename = $Roledetails['rolename'];
-
-                            $tokenData['rolename'] = $retrolename;
+                       $UserStatusId = $userdetails['UserStatusId'];
+                        if($retpassword == $password &&  $UserStatusId == "A")
+                        {
+                            $tokenData['rolename'] = $UserTypeId;
                             $tokenData['timeStamp'] = Date('Y-m-d h:i:s');
                             $jwtToken = $this->applib->generateToken($tokenData);
-                           
+
                             $dealerData['token'] = $jwtToken;
                             $this->response(
                                 array('details' => $dealerData),
                                 200,
-                            
+
                             );
 
-                            
+
                         }
-                        else{
+                        else
+                        {
                             $this->response('', 111, 'fail', "Incorrect Credentials");
                         }
-                   
-                
-                   }
-                     
-                 }
-                  
-        // }
-        //var_dump("hi");
-        // $shop_id=$_GET['currentUserId'];
-        // $data = $this->login_model->loginVerify($emailid,$password);
-        // echo json_encode($data);
+                    }
+                    else
+                    {
+                            $this->response('', 111, 'fail', "Incorrect Credentials");
+                    }
+
+
+
+
     }
-    
+
+
+}
+

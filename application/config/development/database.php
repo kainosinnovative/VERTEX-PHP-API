@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'LAPTOP-EV1M07C4\SQL_SERVER',
-	'username' => 'sa',
-	'password' => 'kainos123',
+	'hostname' => 'DESKTOP-L8DUMLV\SQLEXPRESS',
+	'username' => '',
+	'password' => '',
 	'database' => 'vms_bacpac_20220606',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',

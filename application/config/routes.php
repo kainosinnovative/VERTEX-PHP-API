@@ -234,3 +234,4 @@ $route['default_controller'] = 'test';
 // $route['shop/chartcustomercombo']='shop/chartcustomercombo';
 
 $route['login/getusers']='login/getusers';
+$route['login/loginauth']='login/loginauth';

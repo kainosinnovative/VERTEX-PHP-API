@@ -12,15 +12,15 @@ if (!defined('BASEPATH')) {
 class Login_model extends CI_Model
 {
 
-    public function get_user_cardential($emailid)
+    public function get_user_credential($UserId)
         {
             $this->db->select('*');
             $this->db->from('tUser');
-            $this->db->where('EmployeeId', $emailid);
+            $this->db->where('UserId', $UserId);
             return $this->db->get()->row_array();
         }
 
-    
+
         public function getroleDetails($UserTypeId)
         {
             $this->db->select('*');
@@ -29,11 +29,8 @@ class Login_model extends CI_Model
             return $this->db->get()->row_array();
         }
 
-        public function checkuser($EmployeeId){
-//             $this->db->where('emailid', $emailid);
-// $query = $this->db->get('users');
-// echo $query->num_rows();
-$result = $this->db->query("SELECT count(*) as cnt from tUser where (EmployeeId='$EmployeeId')")->row_array();
+        public function checkuser($UserId){
+        $result = $this->db->query("SELECT count(*) as cnt from tUser where (UserId='$UserId')")->row_array();
             $cnt = $result['cnt'];
             return $cnt;
           }
@@ -42,5 +39,12 @@ $result = $this->db->query("SELECT count(*) as cnt from tUser where (EmployeeId=
     {
         $jwt = JWT::encode($data, $this->key);
         return $jwt;
+    }
+    public function getUserType()
+    {
+        $this->db->select('*');
+            $this->db->from('tUserType');
+            // $this->db->where('shop_id', $shop_id);
+            return $this->db->get()->row_array();
     }
 }
