@@ -33,35 +33,45 @@ class Login extends REST_Controller
 
     public function loginauth_post()
     {
-
+        // $json = file_get_contents('php://input');
+        //         // Converts it into a PHP object
+                        // $request = json_decode($json);
+                        // $loginForm = $request->loginForm;
+                        // var_dump($loginForm);
+                        // $UserId = $loginForm->UserId;
         $UserId = $this->post('UserId');
         $password = $this->post('Password');
-
+        // echo $UserId;
+        // $this->response($UserId);
 
             $cardential = ['EmployeeId' => $this->input->post('UserId'),
                         //    'password' => $this->input->post('password')
                           ];
 
                      $rowcountuser = $this->login_model->checkuser($UserId);
+                    //  $this->response($rowcountuser);
                     if($rowcountuser != 0)
                     {
-                    //    echo "yes";
+                    // //    echo "yes";
                        $userdetails = $this->login_model->get_user_credential($UserId);
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
                        $UserStatusId = $userdetails['UserStatusId'];
+                    //    $this->response($retpassword);
                         if($retpassword == $password &&  $UserStatusId == "A")
                         {
-                            $tokenData['rolename'] = $UserTypeId;
+                            $tokenData['usertype'] = $UserTypeId;
                             $tokenData['timeStamp'] = Date('Y-m-d h:i:s');
                             $jwtToken = $this->applib->generateToken($tokenData);
 
                             $dealerData['token'] = $jwtToken;
-                            $this->response(
-                                array('details' => $dealerData),
-                                200,
+                            // $this->response(
+                            //     array('details' => $dealerData),
+                            //     200,
 
-                            );
+                            // );
+
+                            $this->response('', 200, 'success', $dealerData);
 
 
                         }
