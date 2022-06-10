@@ -40,22 +40,38 @@ class Applib
      *
      * @return Int - Dealer ID
      */
+
+    public function verifyTokenNew() {
+        // $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySWQiOiJVMDAwMSIsInRpbWVTdGFtcCI6IjIwMjItMDYtMTAgMTI6MTg6MDAifQ.JBP3WZhsoDVyr54oGQdgAlNLIWEk9hdsp4bL-7zMyUo";
+	    $datas = $this->obj->input->request_headers()['Authorization'];
+        $tks = explode('Bearer', $datas);
+        // echo $token;
+        $userArr = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $tks[1])[1]))));
+        $finalArr = ( (array) $userArr );
+        return  $finalArr;
+    }
+
     public function verifyToken()
     {
         $datas = $this->obj->input->request_headers()['Authorization'];
         // echo "data>>>$datas";
-        var_dump("data>>>$datas");
-        $token = isset($datas['token']) ? $datas['token'] : '';
-       
+        // var_dump("data>>>$datas");
+        $token = isset($datas) ? $datas : '';
+        var_dump("token>>>$token");
         if (empty($token)) {
             $this->obj->response('You must login to use this service', 401);
         }
+        // $tks = explode('.', $token);
+        // print_r("json>>>".json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1])))));
         $tks = explode('.', $token);
+        print_r($tks);
+        // echo count($tks);
         if (count($tks) != 3) {
             $this->obj->response('You must login to use this service', 401);
         }
         $decoded = JWT::decode($token, $this->key, array('HS256'));
         $decodedData = (array) $decoded;
+        // var_dump($decoded);
         if (empty($decodedData['dealer_id'])) {
             $this->obj->response('You must login to use this service', 401);
         }

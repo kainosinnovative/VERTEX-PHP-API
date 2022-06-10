@@ -78,14 +78,18 @@ class Login extends REST_Controller
 
 
                         }
-                        else
+                        else if($retpassword == $password &&  $UserStatusId != "A")
                         {
-                            $this->response('', 111, 'fail', "Incorrect Credentials");
+                            $this->response('', 404, 'fail', "Inactive User");
+                        }
+                        else if($retpassword != $password &&  $UserStatusId == "A")
+                        {
+                            $this->response('', 404, 'fail', "Incorrect Password");
                         }
                     }
                     else
                     {
-                            $this->response('', 111, 'fail', "Incorrect Credentials");
+                            $this->response('', 404, 'fail', "Invalid User");
                     }
 
 
