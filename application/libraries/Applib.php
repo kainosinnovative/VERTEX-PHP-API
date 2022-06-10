@@ -28,7 +28,7 @@ class Applib
      * @param Array $data - params for generating token
      * @return String $jwt - access token
      */
-    private $key = "MNCDEALERLOGIN";
+    private $key = "KAINOSVMS";
     public function generateToken($data)
     {
         $jwt = JWT::encode($data, $this->key);
@@ -42,7 +42,9 @@ class Applib
      */
     public function verifyToken()
     {
-        $datas = $this->obj->input->request_headers();
+        $datas = $this->obj->input->request_headers()['Authorization'];
+        // echo "data>>>$datas";
+        var_dump("data>>>$datas");
         $token = isset($datas['token']) ? $datas['token'] : '';
        
         if (empty($token)) {

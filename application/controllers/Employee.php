@@ -34,9 +34,11 @@ class Employee extends REST_Controller
 
     public function employeedashboard_get()
     {
+
+        $dealerId = $this->applib->verifyToken()[""];
         // $json = file_get_contents('php://input');
 
-                    // //    echo "yes";
+                       echo $dealerId;
                        $userdetails = $this->employee_model->get_employee_details();
                         $this->response($userdetails);
 

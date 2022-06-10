@@ -11,6 +11,7 @@ class Login extends REST_Controller
         // Construct the parent class
         parent::__construct();
         header('Content-Type:  multipart/form-data');
+        header('Authorization: token');
         header('Access-Control-Allow-Origin: *');
         header("Access-Control-Allow-Methods: HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS");
         header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method,Access-Control-Request-Headers, Authorization");
@@ -56,11 +57,13 @@ class Login extends REST_Controller
                        $userdetails = $this->login_model->get_user_credential($UserId);
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
+
                        $UserStatusId = $userdetails['UserStatusId'];
                     //    $this->response($retpassword);
                         if($retpassword == $password &&  $UserStatusId == "A")
                         {
-                            $tokenData['usertype'] = $UserTypeId;
+                            $tokenData['UserId'] = $UserId;
+                            $tokenData['UserTypeId'] = $UserTypeId;
                             $tokenData['timeStamp'] = Date('Y-m-d h:i:s');
                             $jwtToken = $this->applib->generateToken($tokenData);
 
