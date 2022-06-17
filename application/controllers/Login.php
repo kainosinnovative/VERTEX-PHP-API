@@ -97,6 +97,12 @@ class Login extends REST_Controller
 
     }
 
+    public function displayAllEmployee1_get()
+    {
+        $userdetails = $this->login_model->displayAllEmployee();
+        $this->response($userdetails);
+    }
+
 
 }
 

@@ -236,3 +236,8 @@ $route['default_controller'] = 'test';
 $route['login/getusers']='login/getusers';
 $route['login/loginauth']='login/loginauth';
 $route['employee/employeedashboard']='employee/employeedashboard';
+$route['login/displayAllEmployee1']='login/displayAllEmployee1';
+
+
+//Vendor API
+$route['vendor/InsertNewVendor']='vendor/InsertNewVendor';

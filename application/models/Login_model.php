@@ -47,4 +47,17 @@ class Login_model extends CI_Model
             // $this->db->where('shop_id', $shop_id);
             return $this->db->get()->row_array();
     }
+    public function displayAllEmployee() {
+		//$sql = "CALL selectallemployee()";
+        $insert_user_stored_proc = "selectallemployee";
+      //  $data = array('name' => $name, 'email' => $email, 'phone' => $phone, 'address' => $address);
+        $result = $this->db->query($insert_user_stored_proc);
+		//$result = $this->db->query('CALL selectallemployee()');
+
+		if ($result) {
+			return $this->db->get()->result_array();
+		}
+
+		return false;
+	}
 }
