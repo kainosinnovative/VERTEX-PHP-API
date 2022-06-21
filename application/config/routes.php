@@ -246,3 +246,6 @@ $route['login/insert']='login/insert';
 $route['login/AddCountryInsert']='login/AddCountryInsert';
 
 $route['login/CountryView']='login/CountryView';
+
+//common
+$route['app/selectallstate']='app/selectallstate';
