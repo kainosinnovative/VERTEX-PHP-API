@@ -103,6 +103,75 @@ class Login extends REST_Controller
         $this->response($userdetails);
     }
 
+    public function insertVendor_post() {
+        var_dump($this->input->post('VendorId'));
+        // if ($this->input->post('submit')) {
+            // $this->form_validation->set_rules('name', 'Full Name', 'trim|required');
+            // $this->form_validation->set_rules('email', 'Email Address', 'trim|required');
+            // $this->form_validation->set_rules('phone', 'Phone No.', 'trim|required');
+            // $this->form_validation->set_rules('address', 'Contact Address', 'trim|required');
 
+            // if ($this->form_validation->run() !== FALSE) {
+                $result = $this->login_model->insert_user($this->input->post('VendorId'),
+                $this->input->post('LegalName'),
+                 $this->input->post('TradeName'), 
+                 $this->input->post('AliasName'),
+                  $this->input->post('Phone'),
+                $this->input->post('Email'),
+                 $this->input->post('EIN_SSN'),
+                  $this->input->post('VendorTypeId'),
+                   $this->input->post('OutreachEmailOptIn'),
+                $this->input->post('BusinessSize'),
+                $this->input->post('NAICSCodes'),
+                $this->input->post('CommodityCodes'),
+                $this->input->post('BEClassificationId'),
+                $this->input->post('BusinessRegisteredInDistrict'),
+                $this->input->post('BusinessIsFranchisee'),
+                $this->input->post('Website'),
+                $this->input->post('CreatedDate'),
+                $this->input->post('UpdatedDate'),
+                $this->input->post('CreatedUserId'),
+                $this->input->post('UpdatedUserId'),
+                $this->input->post('BusinessRegisteredInSCC'));
+                $data['success'] = $result;
+                
+            // } else {
+            //     $this->load->view('sp_view');
+            // }
+        // } else {
+        //     $this->load->view('sp_view');
+        // }
+    }
+
+    public function insert_post() {
+       
+                $result = $this->login_model->insert_user1($this->input->post('CountryId'), $this->input->post('CountryName'));
+              
+    }
+
+//     public function sp()
+// {
+// $this->login_model->pc();
+// }
+
+public function AddCountryInsert_post() {
+
+
+    $json = file_get_contents('php://input');
+// Converts it into a PHP object
+    $data = json_decode($json);
+    print_r($data);
+
+        $insertTestimonial = $this->login_model->AddCountry($data);
+
+    
+    
+}
+
+public function CountryView_get()
+{
+    $userdetails = $this->login_model->getCountryView();
+    $this->response($userdetails);
+}
 }
 
