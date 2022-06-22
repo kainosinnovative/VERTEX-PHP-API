@@ -795,9 +795,23 @@ die();
 //     $this->response($carDetails);
 // }
 
-public function selectallstate_get()
+public function selectAllState_get()
 {
     $data['statedetails']=$this->app_model->getAllState();
     $this->response($data);
+}
+public function getCityDistrictByState_post()
+{
+    $stateid=$this->post('stateid');
+    $data['citydistrictdata']=$this->app_model->getcitydistrictbystate($stateid);
+    $this->response($data);
+
+}
+public function getZipcodeByCity_post()
+{
+    $cityid=$this->post('cityid');
+    $data['zipcodedata']=$this->app_model->getzipcodebycity($cityid);
+    $this->response($data);
+
 }
     }

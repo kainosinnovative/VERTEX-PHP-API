@@ -605,5 +605,17 @@ public function getAllState()
 $query = $this->db->get('StateView');
 return $query->result_array();
 }
+public function getcitydistrictbystate($stateid)
+{
+   // var_dump($stateid);
+    $query = $this->db->query("GetCityDistrictByState @StateId='$stateid'");
+    return $query->result_array();
+}
+public function getzipcodebycity($cityid)
+{
+    $query = $this->db->query("GetZipcodeByCity @CityId='$cityid'");
+    return $query->result_array();
+
+}
 
 }

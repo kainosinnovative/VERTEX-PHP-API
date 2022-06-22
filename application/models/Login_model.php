@@ -69,7 +69,7 @@ class Login_model extends CI_Model
     //  $Website,$CreatedDate,$UpdatedDate,$CreatedUserId,$UpdatedUserId,$BusinessRegisteredInSCC
      ) {
         $sp = "InsertInto ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?,?,?,?,?,?,?,?,?,?,?";
-       
+
         $data = array(
             'VendorId' => $VendorId,
             'LegalName' => $LegalName,
@@ -92,33 +92,24 @@ class Login_model extends CI_Model
             'CreatedUserId' => 'A0001',
             'UpdatedUserId' => 'A0001',
             'BusinessRegisteredInSCC' => '',
-            
-            
+
+
             );
-            
+
             $result = $this->db->query($sp,$data);
 
-		
+
 	}
-    
-    // function insert_user1($CountryId, $CountryName) {
-		// $sp_insert_user = "Execute InsertCountry(?, ?)";
-        // $data = array('CountryId' => $CountryId, 'CountryName' => $CountryName);
-        // $result = $this->db->query($sp_insert_user, $data);
-        // if ($result) {
-        //     return $result;
-        // }
-        // return NULL;
-// }
-        public function insert_user1($CountryId,$CountryName){
+
+         public function insert_user1($CountryId,$CountryName){
             $sp = "InsertCountry ?,? "; //No exec or call needed
-            
+
             //No @ needed.  Codeigniter gets it right either way
             $params = array(
             'CountryId' => $CountryId,
             'CountryName' => $CountryName,
             );
-            
+
             $result = $this->db->query($sp,$params);
         }
 
