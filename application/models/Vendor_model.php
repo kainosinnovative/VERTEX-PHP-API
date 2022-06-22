@@ -22,4 +22,27 @@ class Vendor_model extends CI_Model
         return $jwt;
     }
 
+    function insert_vendorContact($VendorId, $ContactName,$Phone, $JobTitle, $Email, $VendorContactPrimary,$VendorContactActive
+     ) {
+        $sp = "InsertVendorContact ?, ?, ?, ?, ?, ?, ?";
+
+        $data = array(
+            'VendorId' => $VendorId,
+            'ContactName' => $ContactName,
+            'Phone' => $Phone,
+            'JobTitle' => $JobTitle,
+            'Phone' => $Phone,
+            'Email' => $Email,
+            'VendorContactPrimary' => $VendorContactPrimary,
+            'VendorContactActive' => $VendorContactActive,
+            
+
+
+            );
+
+            $result = $this->db->query($sp,$data);
+
+
+	}
+
 }

@@ -241,6 +241,8 @@ $route['login/displayAllEmployee1']='login/displayAllEmployee1';
 // $route['login/pc']='login/pc';
 //Vendor API
 $route['vendor/InsertNewVendor']='vendor/InsertNewVendor';
+$route['vendor/InsertVendorContact']='vendor/InsertVendorContact';
+
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
 $route['login/AddCountryInsert']='login/AddCountryInsert';
