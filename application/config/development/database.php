@@ -75,17 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
 	'hostname' => 'LAPTOP-EV1M07C4\SQL_SERVER',
 	'username' => 'sa',
 	'password' => 'kainos123',
 	'database' => 'vms-jun6-2022',
-=======
-	'hostname' => 'DESKTOP-9P2PCN0\SQL_SERVER',
-	'username' => '',
-	'password' => '',
-	'database' => 'vertex-dbjune22-2022',
->>>>>>> b86cdc8d1f275146225ea864d9bf5790d1ef8649
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
