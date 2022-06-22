@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'DESKTOP-L8DUMLV\SQLEXPRESS',
+	'hostname' => 'DESKTOP-9P2PCN0\SQL_SERVER',
 	'username' => '',
 	'password' => '',
-	'database' => 'vertex-june21-2022',
+	'database' => 'vertex-dbjune22-2022',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
