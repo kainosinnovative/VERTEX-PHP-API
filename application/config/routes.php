@@ -248,4 +248,6 @@ $route['login/AddCountryInsert']='login/AddCountryInsert';
 $route['login/CountryView']='login/CountryView';
 
 //common
-$route['app/selectallstate']='app/selectallstate';
+$route['app/selectAllState']='app/selectAllState';
+$route['app/getCityDistrictByState']='app/getCityDistrictByState';
+$route['app/getZipcodeByCity']='app/getZipcodeByCity';
