@@ -134,4 +134,61 @@ return $query->result_array();
 	// 	if ($result) {
 	// 		return $this->db->get()->result_array();
     }
+
+    public function AddUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId){
+        $sp = "sAddUserLogin ?,?,?,?,?,?,?"; //No exec or call needed
+
+            //No @ needed.  Codeigniter gets it right either way
+            $params = array(
+            'UserId' => $UserId,
+            'LoginDate' => $LoginDate,
+            'PasswordEntered' => $Password,
+            'Successful' => $Successful,
+            'IPAddress' => $IPAddress,
+            'LoginDetail' => $LoginDetail,
+            'SessionId' => $SessionId
+            
+            );
+
+            $result = $this->db->query($sp,$params);
+        
+
+    }
+
+        public function checkUserLoginDetails($UserId) {
+         $result = $this->db->query("SELECT count(*) as cnt from tUserLogin where (UserId='$UserId')")->row_array();
+            $cnt = $result['cnt'];
+            return $cnt;
+    }
+
+    public function UpdateUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId){
+        $sp = "sUpdateUserLogin ?,?,?,?,?,?,?"; //No exec or call needed
+
+            //No @ needed.  Codeigniter gets it right either way
+            $params = array(
+            'UserId' => $UserId,
+            'LoginDate' => $LoginDate,
+            'PasswordEntered' => $Password,
+            'Successful' => $Successful,
+            'IPAddress' => $IPAddress,
+            'LoginDetail' => $LoginDetail,
+            'SessionId' => $SessionId
+                        );
+
+            $result = $this->db->query($sp,$params);
+        
+
+    }
 }

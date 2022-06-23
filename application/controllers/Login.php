@@ -42,8 +42,9 @@ class Login extends REST_Controller
                         // $UserId = $loginForm->UserId;
         $UserId = $this->post('UserId');
         $password = $this->post('Password');
+        $IPAddress = $this->post('IPAddress');
         // echo $UserId;
-        // $this->response($UserId);
+        // $this->response($IPAddress);
 
             $cardential = ['EmployeeId' => $this->input->post('UserId'),
                         //    'password' => $this->input->post('password')
@@ -62,6 +63,10 @@ class Login extends REST_Controller
                     //    $this->response($retpassword);
                         if($retpassword == $password &&  $UserStatusId == "A")
                         {
+
+                            // $UserId=$_POST['UserId'];
+    
+
                             $tokenData['UserId'] = $UserId;
                             $tokenData['UserTypeId'] = $UserTypeId;
                             $tokenData['timeStamp'] = Date('Y-m-d h:i:s');
@@ -74,7 +79,48 @@ class Login extends REST_Controller
 
                             // );
 
-                            $this->response('', 200, 'success', $dealerData);
+                            // $this->response('', 200, 'success', $dealerData);
+
+                            $checkUserLogin = $this->login_model->checkUserLoginDetails($UserId);
+    // var_dump($checkUserLogin);
+    if($checkUserLogin == 0){
+    $LoginDate=date('Y-m-d');
+    // $Password=$password;
+    $Successful=1;
+    $IPAddress=$IPAddress;
+    $LoginDetail="Success";
+    $SessionId="";
+    
+    $result = $this->login_model->AddUserLogin($UserId,
+    $LoginDate,
+    $password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId
+);
+                $data['success'] = $result;
+}
+
+else {
+    $LoginDate=date('Y-m-d');
+    
+    $Password=$Password;
+    $Successful=1;
+    $IPAddress=$IPAddress;
+    $LoginDetail='Success';
+    $SessionId='';
+    
+    $result = $this->login_model->UpdateUserLogin($UserId,
+    $LoginDate,
+    $password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId
+);
+                $data['success'] = $result;
+}
 
 
                         }
@@ -172,6 +218,50 @@ public function CountryView_get()
 {
     $userdetails = $this->login_model->getCountryView();
     $this->response($userdetails);
+}
+
+public function AddUserLogin_post()
+{
+    $UserId=$_POST['UserId'];
+    $checkUserLogin = $this->login_model->checkUserLoginDetails($UserId);
+    // var_dump($checkUserLogin);
+    if($checkUserLogin == 0){
+    $LoginDate=date('Y-m-d');
+    $Password=$_POST['Password'];
+    $Successful=$_POST['Successful'];
+    $IPAddress=$_POST['IPAddress'];
+    $LoginDetail=$_POST['LoginDetail'];
+    $SessionId=$_POST['SessionId'];
+    
+    $result = $this->login_model->AddUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId
+);
+                $data['success'] = $result;
+}
+else {
+    $LoginDate=date('Y-m-d');
+    $Password=$_POST['Password'];
+    $Successful=$_POST['Successful'];
+    $IPAddress=$_POST['IPAddress'];
+    $LoginDetail=$_POST['LoginDetail'];
+    $SessionId=$_POST['SessionId'];
+    
+    $result = $this->login_model->UpdateUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId
+);
+                $data['success'] = $result;
+}
+   
 }
 }
 

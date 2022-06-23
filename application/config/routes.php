@@ -246,6 +246,7 @@ $route['vendor/InsertVendorContact']='vendor/InsertVendorContact';
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
 $route['login/AddCountryInsert']='login/AddCountryInsert';
+$route['login/AddUserLogin']='login/AddUserLogin';
 
 $route['login/CountryView']='login/CountryView';
 
