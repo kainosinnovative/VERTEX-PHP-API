@@ -160,7 +160,7 @@ else {
             // if ($this->form_validation->run() !== FALSE) {
                 $result = $this->login_model->insert_user($this->input->post('VendorId'),
                 $this->input->post('LegalName'),
-                 $this->input->post('TradeName'), 
+                 $this->input->post('TradeName'),
                  $this->input->post('AliasName'),
                   $this->input->post('Phone'),
                 $this->input->post('Email'),
@@ -180,7 +180,7 @@ else {
                 $this->input->post('UpdatedUserId'),
                 $this->input->post('BusinessRegisteredInSCC'));
                 $data['success'] = $result;
-                
+
             // } else {
             //     $this->load->view('sp_view');
             // }
@@ -190,9 +190,9 @@ else {
     }
 
     public function insert_post() {
-       
+
                 $result = $this->login_model->insert_user1($this->input->post('CountryId'), $this->input->post('CountryName'));
-              
+
     }
 
 //     public function sp()
@@ -210,8 +210,8 @@ public function AddCountryInsert_post() {
 
         $insertTestimonial = $this->login_model->AddCountry($data);
 
-    
-    
+
+
 }
 
 public function CountryView_get()
@@ -263,5 +263,30 @@ else {
 }
    
 }
+public function AddUser_post()
+{
+
+    $result = $this->login_model->addUser($this->input->post('userid'),
+    'VENDOR',
+    'A',
+    $this->input->post('password'),
+    '',
+    $this->input->post('userid'),
+    date('Y-m-d'),
+    $this->input->post('userid'),
+    '',
+    '',
+    $this->input->post('firstname'),
+    $this->input->post('lastname'),
+    $this->input->post('phone'),
+    $this->input->post('email'),
+    $this->input->post('postalcode'),
+    $this->input->post('jobtitle')
+);
+    $data['success'] = $result;
+    $this->response($data);
+}
+
+
 }
 

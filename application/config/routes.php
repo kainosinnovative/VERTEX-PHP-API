@@ -242,13 +242,14 @@ $route['login/displayAllEmployee1']='login/displayAllEmployee1';
 //Vendor API
 $route['vendor/InsertNewVendor']='vendor/InsertNewVendor';
 $route['vendor/InsertVendorContact']='vendor/InsertVendorContact';
-
+//login
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
 $route['login/AddCountryInsert']='login/AddCountryInsert';
 $route['login/AddUserLogin']='login/AddUserLogin';
 
 $route['login/CountryView']='login/CountryView';
+$route['login/AddUser']='login/AddUser';
 
 //common
 $route['app/selectAllState']='app/selectAllState';

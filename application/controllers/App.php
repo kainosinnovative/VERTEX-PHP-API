@@ -800,16 +800,16 @@ public function selectAllState_get()
     $data['statedetails']=$this->app_model->getAllState();
     $this->response($data);
 }
-public function getCityDistrictByState_post()
+public function getCityDistrictByState_get()
 {
-    $stateid=$this->post('stateid');
+    $stateid=$_GET["stateid"];
     $data['citydistrictdata']=$this->app_model->getcitydistrictbystate($stateid);
     $this->response($data);
 
 }
-public function getZipcodeByCity_post()
+public function getZipcodeByCity_get()
 {
-    $cityid=$this->post('cityid');
+    $cityid=$_GET['cityid'];
     $data['zipcodedata']=$this->app_model->getzipcodebycity($cityid);
     $this->response($data);
 
