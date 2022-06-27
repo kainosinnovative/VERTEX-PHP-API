@@ -605,6 +605,13 @@ public function getAllState()
 $query = $this->db->get('vState');
 return $query->result_array();
 }
+
+public function getUserType()
+{
+$query = $this->db->get('vUserType');
+return $query->result_array();
+}
+
 public function getcitydistrictbystate($stateid)
 {
    // var_dump($stateid);

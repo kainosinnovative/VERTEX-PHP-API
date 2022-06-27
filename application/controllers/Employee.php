@@ -55,6 +55,11 @@ class Employee extends REST_Controller
     $this->response($data);
 }
 
+public function selectJobTitle_get()
+{
+    $data['JobTitle']=$this->employee_model->getJobTitle();
+    $this->response($data);
+}
 
 }
 

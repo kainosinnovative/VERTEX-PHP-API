@@ -25,7 +25,11 @@ $query = $this->db->get('vEmploymentType');
 return $query->result_array();
 }
 
-
+public function getJobTitle()
+{
+$query = $this->db->get('vJobTitle');
+return $query->result_array();
+}
 
 
 

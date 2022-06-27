@@ -819,4 +819,10 @@ public function getZipCode_post()
     $data['zipcodedata']=$this->app_model->getzipcode();
     $this->response($data);
 }
+
+public function selectUserType_get()
+{
+    $data['UserTypeDetails']=$this->app_model->getUserType();
+    $this->response($data);
+}
     }
