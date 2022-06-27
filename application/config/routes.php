@@ -257,3 +257,5 @@ $route['app/selectAllState']='app/selectAllState';
 $route['app/getCityDistrictByState']='app/getCityDistrictByState';
 $route['app/getZipcodeByCity']='app/getZipcodeByCity';
 $route['app/getZipCode']='app/getZipCode';
+
+$route['employee/selectEmployeeType']='employee/selectEmployeeType';

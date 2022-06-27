@@ -19,6 +19,12 @@ class Employee_model extends CI_Model
             return $this->db->get()->row_array();
         }
 
+        public function getAllEmpType()
+{
+$query = $this->db->get('vEmploymentType');
+return $query->result_array();
+}
+
 
 
 

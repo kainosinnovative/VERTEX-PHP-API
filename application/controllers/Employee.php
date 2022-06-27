@@ -49,6 +49,12 @@ class Employee extends REST_Controller
 
     }
 
+    public function selectEmployeeType_get()
+{
+    $data['EmployeeDetails']=$this->employee_model->getAllEmpType();
+    $this->response($data);
+}
+
 
 }
 
