@@ -248,4 +248,14 @@ return $query->result_array();
 
     }
 
+    public function selectNewid()
+        {
+    
+            $sql = "SELECT NEWID()";
+    		$query = $this->db->query($sql);
+    
+            return $query->result_array();
+    
+        }
+
 }

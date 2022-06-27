@@ -261,27 +261,29 @@ else {
 }
 public function AddUser_post()
 {
-    $cuid=$this->login_model->createCUID();
-    $result = $this->login_model->addUser($this->input->post('password'),
-    'VENDOR',
-    'N',
-    $this->input->post('password'),
-    '',
-    '',
-    date('Y-m-d'),
-    '',
-     date('Y-m-d'),
-    '',
-    $this->input->post('firstname'),
-    $this->input->post('lastname'),
-    $this->input->post('phone'),
-    $this->input->post('email'),
-    $this->input->post('postalcode'),
-    $this->input->post('vendortype')
-  //  $this->input->post('jobtitle')
-);
-    $data['success'] = $result;
-    $this->response($data);
+    $cuid=$this->login_model->selectNewid();
+    echo $cuid;
+    // var_dump($cuid);
+//     $result = $this->login_model->addUser($this->input->post('password'),
+//     'VENDOR',
+//     'N',
+//     $this->input->post('password'),
+//     '',
+//     '',
+//     date('Y-m-d'),
+//     '',
+//      date('Y-m-d'),
+//     '',
+//     $this->input->post('firstname'),
+//     $this->input->post('lastname'),
+//     $this->input->post('phone'),
+//     $this->input->post('email'),
+//     $this->input->post('postalcode'),
+//     $this->input->post('vendortype')
+//   //  $this->input->post('jobtitle')
+// );
+//     $data['success'] = $result;
+//     $this->response($data);
 }
 
 
