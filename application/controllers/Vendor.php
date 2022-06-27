@@ -37,6 +37,47 @@ class Vendor extends REST_Controller
         $this->response($vendorinsertsuccess);
     }
 
+    public function InsertVendorContact_get()
+{
+    $ContactBusiness=$_GET['ContactBusiness'];
+    $ContactBusinessArr = json_decode($ContactBusiness,true);
+    // $ContactBusinessArr = (array) $ContactBusiness;
+    // $ContactBusinessArr2 = (array) $ContactBusinessArr;
+    var_dump($ContactBusinessArr);
+    // $vendorid = "test";
+    if($ContactBusinessArr["VendorContactPrimary"] == true) {
+        $ContactBusinessArr["VendorContactPrimary"] = 1;
+    }
+    else {
+        $ContactBusinessArr["VendorContactPrimary"] = 0;
+    }
+
+    if($ContactBusinessArr["VendorContactPrimary"] == true) {
+        $ContactBusinessArr["VendorContactActive"] = 1;
+    }
+    else {
+        $ContactBusinessArr["VendorContactActive"] = 0;
+    }
+    $result = $this->vendor_model->insert_vendorContact("10",
+    $ContactBusinessArr["contact_name"],
+    $ContactBusinessArr["business_phone"], 
+    $ContactBusinessArr["title"],
+    $ContactBusinessArr["business_email"],
+    $ContactBusinessArr["VendorContactPrimary"],
+    $ContactBusinessArr["VendorContactActive"],
+//     $ContactBusinessArr["contact_name"],
+//     $ContactBusinessArr["contact_name"]
+);
+                $data['success'] = $result;
+    // var_dump($ContactBusinessArr[0]);
+
+    // $vendorMgmt=$_GET['vendorMgmt'];
+    
+    
+    // $queryresponse= $this->app_model->Addwhislisttodb($whislist,$Customer_id,$date,$city_id);
+    //$this->response($ContactBusiness);
+}
+
 
 }
 

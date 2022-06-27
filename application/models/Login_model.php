@@ -104,7 +104,7 @@ class Login_model extends CI_Model
          public function insert_user1($CountryId,$CountryName){
             $sp = "InsertCountry ?,? "; //No exec or call needed
 
-            //No @ needed.  Codeigniter gets it right either way
+            //No $ needed.  Codeigniter gets it right either way
             $params = array(
             'CountryId' => $CountryId,
             'CountryName' => $CountryName,
@@ -133,5 +133,118 @@ return $query->result_array();
         // var_dump($result);
 	// 	if ($result) {
 	// 		return $this->db->get()->result_array();
+    }
+
+    public function AddUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId){
+        $sp = "sAddUserLogin ?,?,?,?,?,?,?"; //No exec or call needed
+
+            //No @ needed.  Codeigniter gets it right either way
+            $params = array(
+            'UserId' => $UserId,
+            'LoginDate' => $LoginDate,
+            'PasswordEntered' => $Password,
+            'Successful' => $Successful,
+            'IPAddress' => $IPAddress,
+            'LoginDetail' => $LoginDetail,
+            'SessionId' => $SessionId
+            
+            );
+
+            $result = $this->db->query($sp,$params);
+        
+
+    }
+
+
+        public function checkUserLoginDetails($UserId) {
+         $result = $this->db->query("SELECT count(*) as cnt from tUserLogin where (UserId='$UserId')")->row_array();
+            $cnt = $result['cnt'];
+            return $cnt;
+    }
+
+    public function UpdateUserLogin($UserId,
+    $LoginDate,
+    $Password, 
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId){
+        $sp = "sUpdateUserLogin ?,?,?,?,?,?,?"; //No exec or call needed
+
+            //No @ needed.  Codeigniter gets it right either way
+            $params = array(
+            'UserId' => $UserId,
+            'LoginDate' => $LoginDate,
+            'PasswordEntered' => $Password,
+            'Successful' => $Successful,
+            'IPAddress' => $IPAddress,
+            'LoginDetail' => $LoginDetail,
+            'SessionId' => $SessionId
+                        );
+
+            $result = $this->db->query($sp,$params);
+                    }
+    public function addUser($UserId,$UserTypeId,$UserStatusId,$UserPassword,$EmployeeId,$VendorId,$CreatedDate,$CreatedUserId,$UpdatedDate,$UpdatedUserId,
+                            $firstname,$lastname,$phone,$email,$postalcode,$jobtitle)
+    {
+        $sp = "sAddUser ?, ?, ?, ?, ?, ?, ?, ? ,?, ?";
+
+        $data = array(
+            'UserId'=>$UserId,
+            'UserTypeId'=>$UserTypeId,
+            'UserStatusId'=>$UserStatusId,
+            'UserPassword'=>$UserPassword,
+            'EmployeeId'=>$EmployeeId,
+            'VendorId'=>$VendorId,
+            'CreatedDate'=>$CreatedDate,
+            'CreatedUserId'=>$CreatedUserId,
+            'UpdatedDate'=>$UpdatedDate,
+            'UpdatedUserId'=>$UpdatedUserId,
+            );
+            $vendordata=array(
+                'VendorId' =>$UserId,
+                'LegalName' => $lastname,
+                'TradeName' => $firstname,
+                'AliasName' => '',
+                'Phone' => $phone,
+                'Email' => $email,
+                'EIN_SSN' => '',
+                'VendorTypeId' => 'B',
+                'OutreachEmailOptIn' =>'',
+                'BusinessSize' => '',
+                'NAICSCodes' => '',
+                'CommodityCodes' => '',
+                'BEClassificationId' => '',
+                'BusinessRegisteredInDistrict' => '',
+                'BusinessIsFranchisee' => '',
+                'Website' => '',
+                'CreatedDate' => date('Y-m-d'),
+                'UpdatedDate' => '',
+                'CreatedUserId' => $UserId,
+                'UpdatedUserId' => $UserId,
+                'BusinessRegisteredInSCC' => '',
+            );
+            $this->db->trans_begin();
+           $result = $this->db->query($sp,$data);
+               $sp2 = "sAddVendor ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?,?,?,?,?,?,?,?,?,?,?";
+                $result1 = $this->db->query($sp2,$vendordata);
+           // var_dump($this->db->trans_status());
+            if ($this->db->trans_status() === FALSE)
+            {
+                $this->db->trans_rollback();
+            }
+            else
+            {
+                $this->db->trans_commit();
+                return TRUE;
+
+            }
+
     }
 }
