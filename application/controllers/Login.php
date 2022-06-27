@@ -65,7 +65,7 @@ class Login extends REST_Controller
                         {
 
                             // $UserId=$_POST['UserId'];
-    
+
 
                             $tokenData['UserId'] = $UserId;
                             $tokenData['UserTypeId'] = $UserTypeId;
@@ -90,10 +90,10 @@ class Login extends REST_Controller
     $IPAddress=$IPAddress;
     $LoginDetail="Success";
     $SessionId="";
-    
+
     $result = $this->login_model->AddUserLogin($UserId,
     $LoginDate,
-    $password, 
+    $password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -104,16 +104,17 @@ class Login extends REST_Controller
 
 else {
     $LoginDate=date('Y-m-d');
-    
+
+
     $Password=$Password;
     $Successful=1;
     $IPAddress=$IPAddress;
     $LoginDetail='Success';
     $SessionId='';
-    
+
     $result = $this->login_model->UpdateUserLogin($UserId,
     $LoginDate,
-    $password, 
+    $password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -232,10 +233,10 @@ public function AddUserLogin_post()
     $IPAddress=$_POST['IPAddress'];
     $LoginDetail=$_POST['LoginDetail'];
     $SessionId=$_POST['SessionId'];
-    
+
     $result = $this->login_model->AddUserLogin($UserId,
     $LoginDate,
-    $Password, 
+    $Password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -250,10 +251,10 @@ else {
     $IPAddress=$_POST['IPAddress'];
     $LoginDetail=$_POST['LoginDetail'];
     $SessionId=$_POST['SessionId'];
-    
+
     $result = $this->login_model->UpdateUserLogin($UserId,
     $LoginDate,
-    $Password, 
+    $Password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -261,27 +262,28 @@ else {
 );
                 $data['success'] = $result;
 }
-   
+
 }
 public function AddUser_post()
 {
-
-    $result = $this->login_model->addUser($this->input->post('userid'),
+    $cuid=$this->login_model->createCUID();
+    $result = $this->login_model->addUser($this->input->post('password'),
     'VENDOR',
-    'A',
+    'N',
     $this->input->post('password'),
     '',
-    $this->input->post('userid'),
-    date('Y-m-d'),
-    $this->input->post('userid'),
     '',
+    date('Y-m-d'),
+    '',
+     date('Y-m-d'),
     '',
     $this->input->post('firstname'),
     $this->input->post('lastname'),
     $this->input->post('phone'),
     $this->input->post('email'),
     $this->input->post('postalcode'),
-    $this->input->post('jobtitle')
+    $this->input->post('vendortype')
+  //  $this->input->post('jobtitle')
 );
     $data['success'] = $result;
     $this->response($data);

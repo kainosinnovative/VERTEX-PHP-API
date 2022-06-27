@@ -602,20 +602,25 @@ class App_model extends CI_Model
 //     }
 public function getAllState()
 {
-$query = $this->db->get('StateView');
+$query = $this->db->get('vState');
 return $query->result_array();
 }
 public function getcitydistrictbystate($stateid)
 {
    // var_dump($stateid);
-    $query = $this->db->query("GetCityDistrictByState @StateId='$stateid'");
+    $query = $this->db->query("sGetCityDistrictByState @StateId='$stateid'");
     return $query->result_array();
 }
 public function getzipcodebycity($cityid)
 {
-    $query = $this->db->query("GetZipcodeByCity @CityId='$cityid'");
+    $query = $this->db->query("sGetZipcodeByCity @CityId='$cityid'");
     return $query->result_array();
 
+}
+public function getzipcode()
+{
+    $query = $this->db->get('vZipCode');
+return $query->result_array();
 }
 
 }

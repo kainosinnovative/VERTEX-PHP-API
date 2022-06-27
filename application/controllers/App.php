@@ -814,4 +814,9 @@ public function getZipcodeByCity_get()
     $this->response($data);
 
 }
+public function getZipCode_post()
+{
+    $data['zipcodedata']=$this->app_model->getzipcode();
+    $this->response($data);
+}
     }

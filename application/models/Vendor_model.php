@@ -12,7 +12,7 @@ if (!defined('BASEPATH')) {
 class Vendor_model extends CI_Model
 {
 
-   
+
 
 
 
@@ -35,7 +35,7 @@ class Vendor_model extends CI_Model
             'Email' => $Email,
             'VendorContactPrimary' => $VendorContactPrimary,
             'VendorContactActive' => $VendorContactActive,
-            
+
 
 
             );
@@ -44,5 +44,11 @@ class Vendor_model extends CI_Model
 
 
 	}
+
+    function getVendorType()
+    {
+        $query = $this->db->get('vVendorType');
+        return $query->result_array();
+    }
 
 }

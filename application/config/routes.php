@@ -242,6 +242,7 @@ $route['login/displayAllEmployee1']='login/displayAllEmployee1';
 //Vendor API
 $route['vendor/InsertNewVendor']='vendor/InsertNewVendor';
 $route['vendor/InsertVendorContact']='vendor/InsertVendorContact';
+$route['vendor/GetVendorType']='vendor/GetVendorType';
 //login
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
@@ -255,3 +256,4 @@ $route['login/AddUser']='login/AddUser';
 $route['app/selectAllState']='app/selectAllState';
 $route['app/getCityDistrictByState']='app/getCityDistrictByState';
 $route['app/getZipcodeByCity']='app/getZipcodeByCity';
+$route['app/getZipCode']='app/getZipCode';

@@ -60,7 +60,7 @@ class Vendor extends REST_Controller
     }
     $result = $this->vendor_model->insert_vendorContact("10",
     $ContactBusinessArr["contact_name"],
-    $ContactBusinessArr["business_phone"], 
+    $ContactBusinessArr["business_phone"],
     $ContactBusinessArr["title"],
     $ContactBusinessArr["business_email"],
     $ContactBusinessArr["VendorContactPrimary"],
@@ -72,10 +72,18 @@ class Vendor extends REST_Controller
     // var_dump($ContactBusinessArr[0]);
 
     // $vendorMgmt=$_GET['vendorMgmt'];
-    
-    
+
+
     // $queryresponse= $this->app_model->Addwhislisttodb($whislist,$Customer_id,$date,$city_id);
     //$this->response($ContactBusiness);
+}
+
+public function GetVendorType_post()
+{
+   // $dealer_id = $this->applib->verifyToken();
+    $data['vendortype'] = $this->vendor_model->getVendorType();
+    $this->response($data);
+
 }
 
 

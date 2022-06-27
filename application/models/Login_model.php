@@ -137,7 +137,7 @@ return $query->result_array();
 
     public function AddUserLogin($UserId,
     $LoginDate,
-    $Password, 
+    $Password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -153,11 +153,11 @@ return $query->result_array();
             'IPAddress' => $IPAddress,
             'LoginDetail' => $LoginDetail,
             'SessionId' => $SessionId
-            
+
             );
 
             $result = $this->db->query($sp,$params);
-        
+
 
     }
 
@@ -170,7 +170,7 @@ return $query->result_array();
 
     public function UpdateUserLogin($UserId,
     $LoginDate,
-    $Password, 
+    $Password,
     $Successful,
     $IPAddress,
     $LoginDetail,
@@ -193,7 +193,7 @@ return $query->result_array();
     public function addUser($UserId,$UserTypeId,$UserStatusId,$UserPassword,$EmployeeId,$VendorId,$CreatedDate,$CreatedUserId,$UpdatedDate,$UpdatedUserId,
                             $firstname,$lastname,$phone,$email,$postalcode,$jobtitle)
     {
-        $sp = "sAddUser ?, ?, ?, ?, ?, ?, ?, ? ,?, ?";
+        $sp = "sAddUser ?, ?, ?, ?, ?, ?, ?, ? ,?";
 
         $data = array(
             'UserId'=>$UserId,
@@ -201,50 +201,51 @@ return $query->result_array();
             'UserStatusId'=>$UserStatusId,
             'UserPassword'=>$UserPassword,
             'EmployeeId'=>$EmployeeId,
-            'VendorId'=>$VendorId,
             'CreatedDate'=>$CreatedDate,
             'CreatedUserId'=>$CreatedUserId,
             'UpdatedDate'=>$UpdatedDate,
             'UpdatedUserId'=>$UpdatedUserId,
             );
-            $vendordata=array(
-                'VendorId' =>$UserId,
-                'LegalName' => $lastname,
-                'TradeName' => $firstname,
-                'AliasName' => '',
-                'Phone' => $phone,
-                'Email' => $email,
-                'EIN_SSN' => '',
-                'VendorTypeId' => 'B',
-                'OutreachEmailOptIn' =>'',
-                'BusinessSize' => '',
-                'NAICSCodes' => '',
-                'CommodityCodes' => '',
-                'BEClassificationId' => '',
-                'BusinessRegisteredInDistrict' => '',
-                'BusinessIsFranchisee' => '',
-                'Website' => '',
-                'CreatedDate' => date('Y-m-d'),
-                'UpdatedDate' => '',
-                'CreatedUserId' => $UserId,
-                'UpdatedUserId' => $UserId,
-                'BusinessRegisteredInSCC' => '',
-            );
-            $this->db->trans_begin();
+            // $vendordata=array(
+            //     'VendorId' =>'',
+            //     'LegalName' => $lastname,
+            //     'TradeName' => $firstname,
+            //     'AliasName' => '',
+            //     'Phone' => $phone,
+            //     'Email' => $email,
+            //     'EIN_SSN' => '',
+            //     'VendorTypeId' => 'B',
+            //     'OutreachEmailOptIn' =>'',
+            //     'BusinessSize' => '',
+            //     'NAICSCodes' => '',
+            //     'CommodityCodes' => '',
+            //     'BEClassificationId' => '',
+            //     'BusinessRegisteredInDistrict' => '',
+            //     'BusinessIsFranchisee' => '',
+            //     'Website' => '',
+            //     'CreatedDate' => date('Y-m-d'),
+            //     'UpdatedDate' => '',
+            //     'CreatedUserId' => $UserId,
+            //     'UpdatedUserId' => $UserId,
+            //     'BusinessRegisteredInSCC' => '',
+            // );
+         //   $this->db->trans_begin();
            $result = $this->db->query($sp,$data);
-               $sp2 = "sAddVendor ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?,?,?,?,?,?,?,?,?,?,?";
-                $result1 = $this->db->query($sp2,$vendordata);
-           // var_dump($this->db->trans_status());
-            if ($this->db->trans_status() === FALSE)
-            {
-                $this->db->trans_rollback();
-            }
-            else
-            {
-                $this->db->trans_commit();
-                return TRUE;
+        //        $sp2 = "sAddVendor ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?,?,?,?,?,?,?,?,?,?,?";
+        //         $result1 = $this->db->query($sp2,$vendordata);
+        //    // var_dump($this->db->trans_status());
+        //     if ($this->db->trans_status() === FALSE)
+        //     {
+        //         $this->db->trans_rollback();
+        //     }
+        //     else
+        //     {
+        //         $this->db->trans_commit();
+        //         return TRUE;
 
-            }
+        //     }
+     return $result;
 
     }
+
 }
