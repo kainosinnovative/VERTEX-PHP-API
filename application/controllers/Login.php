@@ -32,40 +32,33 @@ class Login extends REST_Controller
         $this->load->model("login_model");
     }
 
+
+
     public function loginauth_post()
     {
-        // $json = file_get_contents('php://input');
-        //         // Converts it into a PHP object
-                        // $request = json_decode($json);
-                        // $loginForm = $request->loginForm;
-                        // var_dump($loginForm);
-                        // $UserId = $loginForm->UserId;
+        
         $UserId = $this->post('UserId');
         $password = $this->post('Password');
         $IPAddress = $this->post('IPAddress');
-        // echo $UserId;
-        // $this->response($IPAddress);
+        
 
-            $cardential = ['EmployeeId' => $this->input->post('UserId'),
-                        //    'password' => $this->input->post('password')
+            $cardential = ['EmployeeId' => $this->input->post('UserId')
+                        
                           ];
 
                      $rowcountuser = $this->login_model->checkuser($UserId);
-                    //  $this->response($rowcountuser);
+                    
                     if($rowcountuser != 0)
                     {
-                    // //    echo "yes";
+                    
                        $userdetails = $this->login_model->get_user_credential($UserId);
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
 
                        $UserStatusId = $userdetails['UserStatusId'];
-                    //    $this->response($retpassword);
+                    
                         if($retpassword == $password &&  $UserStatusId == "A")
                         {
-
-                            // $UserId=$_POST['UserId'];
-    
 
                             $tokenData['UserId'] = $UserId;
                             $tokenData['UserTypeId'] = $UserTypeId;
@@ -121,6 +114,8 @@ else {
 );
                 $data['success'] = $result;
 }
+
+$this->response('', 200, 'success', $dealerData);
 
 
                         }
