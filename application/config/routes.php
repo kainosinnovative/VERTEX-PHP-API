@@ -264,4 +264,5 @@ $route['app/selectUserType']='app/selectUserType';
 $route['employee/selectEmployeeType']='employee/selectEmployeeType';
 $route['employee/selectJobTitle']='employee/selectJobTitle';
 
-
+$route['app/selectBEClassification']='app/selectBEClassification';
+$route['app/selectAllCountry']='app/selectAllCountry';
