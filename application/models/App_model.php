@@ -629,5 +629,13 @@ public function getzipcode()
     $query = $this->db->get('vZipCode');
 return $query->result_array();
 }
+public function getBEClassification(){
+    $query = $this->db->get('vBEClassification');
+    return $query->result_array();
+}
+public function getAllcountry(){
+   $query = $this->db->get('vCountry');
+   return $query->result_array();
+}
 
 }
