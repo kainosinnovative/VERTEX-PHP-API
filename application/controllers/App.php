@@ -825,4 +825,12 @@ public function selectUserType_get()
     $data['UserTypeDetails']=$this->app_model->getUserType();
     $this->response($data);
 }
+public function selectBEClassification_get(){
+    $data['BEClassification']=$this->app_model->getBEClassification();
+    $this->response($data);
+}
+public function selectAllcountry_get(){
+    $data['CountryDetails']=$this->app_model->getAllcountry();
+    $this->response($data);
+}
     }

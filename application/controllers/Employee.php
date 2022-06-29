@@ -61,5 +61,31 @@ public function selectJobTitle_get()
     $this->response($data);
 }
 
+public function AddUserEmployee($UserId,
+    $LoginDate,
+    $Password,
+    $Successful,
+    $IPAddress,
+    $LoginDetail,
+    $SessionId){
+        $sp = "sAddUserLogin ?,?,?,?,?,?,?"; //No exec or call needed
+
+            //No @ needed.  Codeigniter gets it right either way
+            $params = array(
+            'UserId' => $UserId,
+            'LoginDate' => $LoginDate,
+            'PasswordEntered' => $Password,
+            'Successful' => $Successful,
+            'IPAddress' => $IPAddress,
+            'LoginDetail' => $LoginDetail,
+            'SessionId' => $SessionId
+
+            );
+
+            $result = $this->db->query($sp,$params);
+
+
+    }
+
 }
 

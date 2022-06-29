@@ -243,6 +243,8 @@ $route['login/displayAllEmployee1']='login/displayAllEmployee1';
 $route['vendor/InsertNewVendor']='vendor/InsertNewVendor';
 $route['vendor/InsertVendorContact']='vendor/InsertVendorContact';
 $route['vendor/GetVendorType']='vendor/GetVendorType';
+$route['vendor/AdduserDetails']='vendor/AdduserDetails';
+
 //login
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
@@ -261,3 +263,6 @@ $route['app/selectUserType']='app/selectUserType';
 
 $route['employee/selectEmployeeType']='employee/selectEmployeeType';
 $route['employee/selectJobTitle']='employee/selectJobTitle';
+
+$route['app/selectBEClassification']='app/selectBEClassification';
+$route['app/selectAllCountry']='app/selectAllCountry';

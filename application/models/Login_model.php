@@ -253,8 +253,10 @@ return $query->result_array();
     
             $sql = "SELECT NEWID()";
     		$query = $this->db->query($sql);
-    
-            return $query->result_array();
+            
+// return $val;
+//  print_r($pro_id);
+            return $query->row_array();
     
         }
 
