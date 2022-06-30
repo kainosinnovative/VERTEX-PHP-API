@@ -165,7 +165,8 @@ $UpdatedDate = date('Y-m-d');
     $data1=array('FirstName'=>$FirstName,'LastName'=>$LastName,'Phone'=>$Phone,'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,
     'StartDate'=>$StartDate,'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
                  'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
-                 // 'CountryId'=>$CountryId,'StartDate'=>$StartDate,'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
+                  'CountryId'=>$CountryId
+                  //,'StartDate'=>$StartDate,'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
                 );
     
                  $result = $this->employee_model->AdduserDetailsEmployee($data,$data1);
@@ -273,6 +274,7 @@ $UpdatedUserId = $request["UserId"];
     'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
     'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
      'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$StartDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+     //'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
                 );
     
                  $result = $this->employee_model->AdduserDetailsVendor($data,$data1);
