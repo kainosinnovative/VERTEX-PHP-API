@@ -79,7 +79,7 @@ class Vendor extends REST_Controller
     //$this->response($ContactBusiness);
 }
 
-public function GetVendorType_post()
+public function GetVendorType_get()
 {
    // $dealer_id = $this->applib->verifyToken();
     $data['vendortype'] = $this->vendor_model->getVendorType();
