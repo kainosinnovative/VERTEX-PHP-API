@@ -266,3 +266,4 @@ $route['employee/selectJobTitle']='employee/selectJobTitle';
 
 $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
+$route['app/getCountryByState']='app/getCountryByState';

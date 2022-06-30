@@ -637,5 +637,10 @@ public function getAllcountry(){
    $query = $this->db->get('vCountry');
    return $query->result_array();
 }
-
+public function getcountrybystate($stateid)
+{
+   // var_dump($stateid);
+    $query = $this->db->query("sGetCountryByState @StateId='$stateid'");
+    return $query->result_array();
+}
 }
