@@ -90,9 +90,9 @@ public function GetVendorType_post()
 
 public function AdduserDetails_post()
 {
-    $data1=$this->employee_model->getNewID();
-    $data=$data1["new_id"];
-    $newid=$data;
+    // $data1=$this->employee_model->getNewID();
+    // $data=$data1["new_id"];
+    // $newid=$data;
     //  $this->response($data);
 
     $json = file_get_contents('php://input');
