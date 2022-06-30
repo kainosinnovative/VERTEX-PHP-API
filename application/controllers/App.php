@@ -848,4 +848,11 @@ public function selectAllcountry_get(){
     $data['CountryDetails']=$this->app_model->getAllcountry();
     $this->response($data);
 }
+public function getCountryByState_get()
+{
+    $stateid=$_GET["stateid"];
+    $data['countrydata']=$this->app_model->getcountrybystate($stateid);
+    $this->response($data);
+
+}
     }
