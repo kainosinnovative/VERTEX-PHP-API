@@ -606,6 +606,12 @@ $query = $this->db->get('vState');
 return $query->result_array();
 }
 
+public function getAllcity()
+{
+$query = $this->db->get('vCity');
+return $query->result_array();
+}
+
 public function getUserType()
 {
 $query = $this->db->get('vUserType');
@@ -624,6 +630,13 @@ public function getzipcodebycity($cityid)
     return $query->result_array();
 
 }
+public function getdistrictstatebycity($cityid)
+{
+    $query = $this->db->query("sGetDistrictStateByCity @CityId='$cityid'");
+    return $query->result_array();
+
+}
+
 public function getzipcode()
 {
     $query = $this->db->get('vZipCode');
