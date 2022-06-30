@@ -95,7 +95,7 @@ public function AdduserDetailsEmployee($data,$data1){
                 var_dump($this->db->trans_status());
                 if ($result) {
     
-                $sp1 = "sAddVendorDetail ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+                $sp1 = "sAddVendorDetail ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
     
             //     //No @ needed.  Codeigniter gets it right either way
             $params1 = $data1;

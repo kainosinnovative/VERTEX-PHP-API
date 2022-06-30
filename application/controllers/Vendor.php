@@ -248,11 +248,11 @@ $UpdatedUserId = $request["UserId"];
     $Address2 = $request["Address2"];
     
     $DistrictId = $request["DistrictId"];
-    $CityId = $request["CityId"];
+    $CityId =  1; //$request["CityId"];
     $StateId = $request["StateId"];
     $Zipcode = $request["Zipcode"];
     $CountryId = $request["CountryId"];
-
+    $EndDate = $request["EndDate"];
     
    
 
@@ -268,7 +268,7 @@ $UpdatedUserId = $request["UserId"];
     'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
     'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
     'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
-     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'Zipcode'=>$Zipcode,'CityId'=>$CityId,'CountryId'=>$CountryId
+     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
                 );
     
                  $result = $this->employee_model->AdduserDetailsVendor($data,$data1);
