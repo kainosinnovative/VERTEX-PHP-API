@@ -45,10 +45,11 @@ class Vendor_model extends CI_Model
 
 	}
 
-    function getVendorType()
-    {
-        $query = $this->db->get('vVendorType');
-        return $query->result_array();
-    }
+    // function getVendorType()
+    // {
+    //     var_dump("hi");
+    //     $query = $this->db->get('vVendorType');
+    //     return $query->result_array();
+    // }
 
 }

@@ -256,8 +256,10 @@ $route['login/AddUser']='login/AddUser';
 
 //common
 $route['app/selectAllState']='app/selectAllState';
+$route['app/selectAllcity']='app/selectAllcity';
 $route['app/getCityDistrictByState']='app/getCityDistrictByState';
 $route['app/getZipcodeByCity']='app/getZipcodeByCity';
+$route['app/getdistrictstatebycity']='app/getdistrictstatebycity';
 $route['app/getZipCode']='app/getZipCode';
 $route['app/selectUserType']='app/selectUserType';
 

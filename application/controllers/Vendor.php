@@ -79,7 +79,7 @@ class Vendor extends REST_Controller
     //$this->response($ContactBusiness);
 }
 
-public function GetVendorType_post()
+public function GetVendorType_get()
 {
    // $dealer_id = $this->applib->verifyToken();
     $data['vendortype'] = $this->vendor_model->getVendorType();
@@ -153,7 +153,7 @@ $UpdatedDate = date('Y-m-d');
     $CityId = $request["CityId"];
     $StateId = $request["StateId"];
     $Zipcode = $request["Zipcode"];
-    // $CountryId = $request["CountryId"];
+    $CountryId = $request["CountryId"];
 
     $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
     'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId, 'VendorId' => $VendorId,'CreatedDate' => $CreatedDate,
@@ -164,7 +164,9 @@ $UpdatedDate = date('Y-m-d');
 
     $data1=array('FirstName'=>$FirstName,'LastName'=>$LastName,'Phone'=>$Phone,'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,
     'StartDate'=>$StartDate,'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
-                 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'StateId'=>$StateId,'Zipcode'=>$Zipcode
+                 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
+                  'CountryId'=>$CountryId
+                  //,'StartDate'=>$StartDate,'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
                 );
     
                  $result = $this->employee_model->AdduserDetailsEmployee($data,$data1);
@@ -197,6 +199,9 @@ $FirstName = $request["FirstName"];
 $LastName = $request["LastName"];
 // $Phone = $request["Phone"];
 $VendorTypeId = $request["VendorTypeId"];
+
+
+
 if($VendorTypeId == true) {
     $VendorTypeId = "B";
     $BusinessSize = $request["BusinessSize"];
@@ -252,7 +257,7 @@ $UpdatedUserId = $request["UserId"];
     $StateId = $request["StateId"];
     $Zipcode = $request["Zipcode"];
     $CountryId = $request["CountryId"];
-    $EndDate = $request["EndDate"];
+    // $EndDate = $request["EndDate"];
     
    
 
@@ -268,7 +273,8 @@ $UpdatedUserId = $request["UserId"];
     'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
     'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
     'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
-     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$StartDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+     //'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
                 );
     
                  $result = $this->employee_model->AdduserDetailsVendor($data,$data1);

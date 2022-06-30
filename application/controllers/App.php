@@ -800,6 +800,14 @@ public function selectAllState_get()
     $data['statedetails']=$this->app_model->getAllState();
     $this->response($data);
 }
+
+public function selectAllcity_get()
+{
+    $data['citydetails']=$this->app_model->getAllcity();
+    $this->response($data);
+}
+
+
 public function getCityDistrictByState_get()
 {
     $stateid=$_GET["stateid"];
@@ -811,6 +819,13 @@ public function getZipcodeByCity_get()
 {
     $cityid=$_GET['cityid'];
     $data['zipcodedata']=$this->app_model->getzipcodebycity($cityid);
+    $this->response($data);
+
+}
+public function getdistrictstatebycity_get()
+{
+    $cityid=$_GET['cityid'];
+    $data['Statelist']=$this->app_model->getdistrictstatebycity($cityid);
     $this->response($data);
 
 }
