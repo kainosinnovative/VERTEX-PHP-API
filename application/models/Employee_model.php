@@ -53,7 +53,7 @@ public function AdduserDetailsEmployee($data,$data1){
             var_dump($this->db->trans_status());
             if ($result) {
 
-            $sp1 = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+            $sp1 = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed - count 16
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params1 = $data1;
@@ -67,6 +67,7 @@ public function AdduserDetailsEmployee($data,$data1){
                 if ($this->db->trans_status() === FALSE)
             {
                 $this->db->trans_rollback();
+                return false;
             }
             else
             {
