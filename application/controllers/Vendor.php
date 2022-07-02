@@ -134,7 +134,7 @@ $LastName = $request["LastName"];
 $Phone = $request["Phone"];
 $EmploymentTypeId = $request["EmploymentTypeId"];
     $JobTitleId = $request["JobTitleId"];
-    $StartDate = $request["StartDate"];
+    $StartDate = $request["JobStartDate"];
     $CreatedDate = date('Y-m-d');
 // $CreatedUserId = $request["CreatedUserId"];
 $UpdatedDate = date('Y-m-d');
@@ -144,8 +144,8 @@ $UpdatedDate = date('Y-m-d');
 
     // insert into employee address
     $AddressTypeId = 'C';
-    $AStartDate = $request["AStartDate"];
-    $enddate = $request["enddate"];
+    $AStartDate = $request["StartDate"];
+    $EndDate = $request["EndDate"];
     $Address1 = $request["Address1"];
     $Address2 = $request["Address2"];
     
@@ -187,12 +187,14 @@ $UserId = $request["UserId"];
     // $UpdatedUserid = $request["UserId"];
     // var_dump($UpdatedUserid);
     $AdminUser = NULL;
-    // if($AdminUser == true){
-    //     $AdminUser = 1;
-    // }
-    // else {
-    //     $AdminUser = 0;
-    // }
+
+    $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+    if($OutreachEmailOptIn == true){
+        $OutreachEmailOptIn = 1;
+    }
+    else {
+        $OutreachEmailOptIn = 0;
+    }
 
     // vendor tbl insert
 $FirstName = $request["FirstName"];
@@ -209,7 +211,8 @@ if($VendorTypeId == true) {
     $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
     $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
     $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
-    $OutreachEmailOptIn = '';
+    // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+    $EIN_SSN = '';
 }
 else {
     $VendorTypeId = "I";
@@ -219,9 +222,10 @@ else {
     $BusinessRegisteredInSCC = '';
     $BusinessIsFranchisee = '';
     // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-    $OutreachEmailOptIn = 1;
-}
+    // $OutreachEmailOptIn = 1;
     $EIN_SSN = $request["EIN_SSN"];
+}
+   
     // $DUNS = $request["DUNS"];
 
     
@@ -247,8 +251,8 @@ $UpdatedUserId = $request["UserId"];
 
     // address vendor
     $AddressTypeId = 'C';
-    $StartDate = $request["AStartDate"];
-    // $EndDate = $request["EndDate"];
+    $StartDate = $request["StartDate"];
+    $EndDate = $request["EndDate"];
     $Address1 = $request["Address1"];
     $Address2 = $request["Address2"];
     
@@ -273,13 +277,29 @@ $UpdatedUserId = $request["UserId"];
     'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
     'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
     'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId,
-     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$StartDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
      //'CreatedDate'=>$CreatedDate,'CreatedUserId'=>$UserId,'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UserId
                 );
     
                  $result = $this->employee_model->AdduserDetailsVendor($data,$data1);
 }
 
+
+}
+
+public function GetAllVendors_get()
+{
+    
+    $data['VendorList']=$this->vendor_model->GetVendorList();
+    $this->response($data);
+
+}
+
+public function GetVendorById_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['SingleVendorDetails']=$this->vendor_model->GetVendorById($VendorId);
+    $this->response($data);
 
 }
 

@@ -52,4 +52,18 @@ class Vendor_model extends CI_Model
     //     return $query->result_array();
     // }
 
+    public function GetVendorList()
+{
+    $query = $this->db->query("sGetAllVendors");
+    return $query->result_array();
+
+}
+
+public function GetVendorById($VendorId)
+{
+    $query = $this->db->query("sGetVendorById @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
+
 }

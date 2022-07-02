@@ -829,7 +829,7 @@ public function getdistrictstatebycity_get()
     $this->response($data);
 
 }
-public function getZipCode_post()
+public function getZipCode_get()
 {
     $data['zipcodedata']=$this->app_model->getzipcode();
     $this->response($data);
@@ -852,6 +852,13 @@ public function getCountryByState_get()
 {
     $stateid=$_GET["stateid"];
     $data['countrydata']=$this->app_model->getcountrybystate($stateid);
+    $this->response($data);
+
+}
+public function getCityByZipcode_get()
+{
+    $zipcode=$_GET['zipcode'];
+    $data['citydata']=$this->app_model->getCityByZipcode($zipcode);
     $this->response($data);
 
 }
