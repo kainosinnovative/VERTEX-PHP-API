@@ -287,5 +287,21 @@ $UpdatedUserId = $request["UserId"];
 
 }
 
+public function GetAllVendors_get()
+{
+    
+    $data['VendorList']=$this->vendor_model->GetVendorList();
+    $this->response($data);
+
+}
+
+public function GetVendorById_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['SingleVendorDetails']=$this->vendor_model->GetVendorById($VendorId);
+    $this->response($data);
+
+}
+
 }
 
