@@ -303,5 +303,13 @@ public function GetVendorById_get()
 
 }
 
+public function GetVendorAddressById_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['SingleVendorAddressDetails']=$this->vendor_model->GetVendorAddressById($VendorId);
+    $this->response($data);
+
+}
+
 }
 

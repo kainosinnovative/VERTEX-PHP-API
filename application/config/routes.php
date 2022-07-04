@@ -246,6 +246,7 @@ $route['vendor/GetVendorType']='vendor/GetVendorType';
 $route['vendor/AdduserDetails']='vendor/AdduserDetails';
 $route['vendor/GetAllVendors']='vendor/GetAllVendors';
 $route['vendor/GetVendorById']='vendor/GetVendorById';
+$route['vendor/GetVendorAddressById']='vendor/GetVendorAddressById';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
@@ -272,3 +273,4 @@ $route['employee/selectJobTitle']='employee/selectJobTitle';
 $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
 $route['app/getCountryByState']='app/getCountryByState';
+$route['app/selectAllDistricts']='app/selectAllDistricts';

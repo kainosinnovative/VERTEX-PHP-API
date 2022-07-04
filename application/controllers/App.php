@@ -807,6 +807,12 @@ public function selectAllcity_get()
     $this->response($data);
 }
 
+public function selectAllDistricts_get()
+{
+    $data['selectAllDistricts']=$this->app_model->getselectAllDistricts();
+    $this->response($data);
+}
+
 
 public function getCityDistrictByState_get()
 {

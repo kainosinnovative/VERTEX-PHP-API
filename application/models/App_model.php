@@ -612,6 +612,12 @@ $query = $this->db->get('vCity');
 return $query->result_array();
 }
 
+public function getselectAllDistricts()
+{
+$query = $this->db->get('vDistrict');
+return $query->result_array();
+}
+
 public function getUserType()
 {
 $query = $this->db->get('vUserType');

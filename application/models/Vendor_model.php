@@ -64,6 +64,12 @@ public function GetVendorById($VendorId)
     $query = $this->db->query("sGetVendorById @VendorId='$VendorId'");
     return $query->result_array();
 
-}
+} 
 
+public function GetVendorAddressById($VendorId)
+{
+    $query = $this->db->query("sGetVendorAddressById @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
 }
