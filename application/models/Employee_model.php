@@ -120,4 +120,6 @@ public function AdduserDetailsEmployee($data,$data1){
     
         }
 
+       
+
 }

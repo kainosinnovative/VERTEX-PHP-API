@@ -310,6 +310,75 @@ public function GetVendorAddressById_get()
     $this->response($data);
 
 }
+public function UpdateVendor_post(){
+
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    // $vendorMgmt = $request->vendorMgmt;
+
+    $VendorId = $request["VendorId"];
+    $VendorTypeId = $request["VendorTypeId"];
+    $Address1 = $request["Address1"];
+    $Address2 = $request['Address2'];
+    $CityId = $request['CityId'];
+    $Zipcode = $request['Zipcode'];
+    $DistrictId = $request['DistrictId'];
+    $StateId = $request['StateId'];
+    $CountryId = $request['CountryId'];
+    $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+   
+    $NAICSCodes = $request["NAICSCodes"];
+    $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
+    $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
+    $DUNS = $request["DUNS"];
+    $CommodityCodes = $request["CommodityCodes"];
+    $Website = $request["Website"];
+    $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
+    $ContactName = $request["ContactName"];
+    $JobTitle = $request["JobTitle"];
+    $VendorContactPrimary = $request["VendorContactPrimary"];
+    $VendorContactActive = $request["VendorContactActive"];
+    $Phone = $request["Phone"];
+    $Email = $request["Email"];
+    $BusinessEmail = $request["BusinessEmail"];
+    $BusinessPhone = $request["BusinessPhone"];
+
+    if($VendorTypeId == "B") {
+        
+         $LegalName = $request["LegalName"];
+         $TradeName = $request["TradeName"];
+         $AliasName = $request["AliasName"];
+         $EIN_SSN = $request["EIN_SSN"];
+        
+     }
+    else {
+       
+        $TradeName = $request["FirstName"]; 
+        $LegalName = $request["LastName"]; 
+        $AliasName = $request["MiddleName"]; 
+        $EIN_SSN = $request["EIN_SSN"];
+  
+      }
+
+    //   $vendordata = array('vendorid'=>$vendorid,'VendorTypeId'=>$VendorTypeId,
+    //    'LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
+    //    'DUNS'=>$DUNS,'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes, 'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
+    // //    'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>$Phone,'Email'=>$Email,
+    //    ,'UpdatedUserId'=>"Test00001",'AliasName'=>$AliasName 
+    //  );
+    var_dump($VendorId);
+
+     $vendordata = array('VendorId'=>$VendorId,'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName
+       
+     );
+
+
+      $result = $this->vendor_model->updatevendorDetails($vendordata);
+      $data['success'] = $result;
+     
+    // $this->response('', 404, 'fail', $request["FirstName"]);
+    
+}
 
 }
 

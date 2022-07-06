@@ -72,4 +72,37 @@ public function GetVendorAddressById($VendorId)
     return $query->result_array();
 
 }
+
+public function updatevendorDetails($vendordata){
+    // $this->db->trans_begin();
+    
+    
+   
+        //$sp = "sUpdateVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; 
+        $sp = "sUpdateVendor ?,?,?,?"; 
+        $params =$vendordata;
+            
+            // print_r($params);
+
+            $result = $this->db->query($sp,$params);
+            // var_dump($this->db->trans_status());
+            // if ($result) {
+
+        
+            // }
+
+
+            //     if ($this->db->trans_status() === FALSE)
+            // {
+            //     $this->db->trans_rollback();
+            // }
+            // else
+            // {
+            //     $this->db->trans_commit();
+            //     return TRUE;
+
+            // }
+
+    }
+
 }
